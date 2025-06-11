@@ -36,18 +36,9 @@ async function getChat(req, res) {
                         },
                     },
                 },
-                users: true,
             },
         });
-        if (chat == null) {
-            res.status(404).send("Non valid chatId");
-            return;
-        }
-        // If current user isnt a member of the chat, deny
-        if (!chat.users.some((user) => user.id === req.user.id)) {
-            res.status(403).send("Forbidden");
-            return;
-        }
+
         res.json({
             chatId: chat.id,
             messages: chat.messages,
@@ -60,27 +51,10 @@ async function getChat(req, res) {
 
 async function sendMessage(req, res) {
     try {
-        const chat = await prisma.chat.findUnique({
-            where: {
-                id: req.params.chatId,
-            },
-            include: {
-                users: true,
-            },
-        });
-        if (chat === null) {
-            res.status(404).send("Non valid chatId");
-            return;
-        }
         if (req.body === undefined || req.body.text === undefined) {
             res.status(400).send(
                 "Bad request: include message text as 'text' in body"
             );
-            return;
-        }
-        // If current user isnt a member of the chat, deny
-        if (!chat.users.some((user) => user.id === req.user.id)) {
-            res.status(403).send("Forbidden");
             return;
         }
 

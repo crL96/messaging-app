@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const controller = require("../controllers/chatController");
 const passport = require("../config/passport");
+const authMiddleware = require("../middleware/auth");
 
 router.post(
     "/new",
@@ -11,11 +12,13 @@ router.post(
 router.get(
     "/messages/:chatId",
     passport.authenticate("jwt", { session: false }),
+    authMiddleware.verifyChatAuth,
     controller.getChat
 );
 router.post(
     "/messages/:chatId",
     passport.authenticate("jwt", { session: false }),
+    authMiddleware.verifyChatAuth,
     controller.sendMessage
 );
 
