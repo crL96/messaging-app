@@ -13,5 +13,10 @@ router.get(
     passport.authenticate("jwt", { session: false }),
     controller.getChat
 );
+router.post(
+    "/messages/:chatId",
+    passport.authenticate("jwt", { session: false }),
+    controller.sendMessage
+);
 
 module.exports = router;
