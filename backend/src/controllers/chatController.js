@@ -20,6 +20,45 @@ async function createChat(req, res) {
     }
 }
 
+async function getChat(req, res) {
+    try {
+        const chat = await prisma.chat.findUnique({
+            where: {
+                id: req.params.chatId,
+            },
+            include: {
+                messages: {
+                    select: {
+                        text: true,
+                        timestamp: true,
+                        sender: {
+                            select: { username: true },
+                        },
+                    },
+                },
+                users: true,
+            },
+        });
+        if (chat == null) {
+            res.status(404).send("Non valid chatId");
+            return;
+        }
+        // If current user isnt a member of the chat, deny
+        if (!chat.users.some((user) => user.id === req.user.id)) {
+            res.status(403).send("Forbidden");
+            return;
+        }
+        res.json({
+            chatId: chat.id,
+            messages: chat.messages,
+        });
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send("Internal server error");
+    }
+}
+
 module.exports = {
     createChat,
+    getChat,
 };
