@@ -49,6 +49,34 @@ async function getChat(req, res) {
     }
 }
 
+async function getAllChatsUser(req, res) {
+    try {
+        const chats = await prisma.user.findUnique({
+            where: {
+                id: req.user.id,
+            },
+            select: {
+                chats: {
+                    include: {
+                        users: {
+                            where: { // Exclude users own name from list
+                                id: { not: req.user.id },
+                            },
+                            select: {
+                                username: true,
+                            },
+                        },
+                    },
+                },
+            },
+        });
+        res.json(chats);
+    } catch (err) {
+        console.log(err.message);
+        res.status(500).send("Internal server error");
+    }
+}
+
 async function sendMessage(req, res) {
     try {
         if (req.body === undefined || req.body.text === undefined) {
@@ -76,4 +104,5 @@ module.exports = {
     createChat,
     getChat,
     sendMessage,
+    getAllChatsUser,
 };

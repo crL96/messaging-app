@@ -10,6 +10,12 @@ router.post(
 );
 
 router.get(
+    "/",
+    passport.authenticate("jwt", { session: false }),
+    controller.getAllChatsUser
+);
+
+router.get(
     "/messages/:chatId",
     passport.authenticate("jwt", { session: false }),
     authMiddleware.verifyChatAuth,
