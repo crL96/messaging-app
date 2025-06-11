@@ -42,6 +42,12 @@ const validateUser = [
         .trim()
         .isLength({ min: 1, max: 25 })
         .withMessage("Password must be between 1 and 25 characters"),
+
+    body("confPassword")
+        .custom((value, { req }) => {
+            return value === req.body.password;
+        })
+        .withMessage("Confirm password and password must match"),
 ];
 
 module.exports = {
