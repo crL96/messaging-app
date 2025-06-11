@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const authRouter = require("./routes/auth");
+const chatRouter = require("./routes/chat");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
     res.send("Server running");
 });
 app.use("/auth", authRouter);
+app.use("/chat", chatRouter);
 
 const PORT = process.env.PORT | 3000;
 app.listen(PORT, () => console.log("Server running on port: " + PORT));
