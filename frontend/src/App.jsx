@@ -7,6 +7,7 @@ function App() {
     <>
       <h1>Hello world</h1>
       <Link to="/login">Login</Link>
+      <Link to="/signup">Sign Up</Link>
     </>
   )
 }
