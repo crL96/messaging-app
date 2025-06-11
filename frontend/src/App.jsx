@@ -1,6 +1,7 @@
 import "./App.css";
 import { Link } from "react-router-dom";
 import ChatList from "./components/chatList/ChatList";
+import ActiveChat from "./components/activeChat/ActiveChat";
 import { useState } from "react";
 
 function App() {
@@ -11,9 +12,8 @@ function App() {
             <h1>Hello world</h1>
             <Link to="/login">Login</Link>
             <Link to="/signup">Sign Up</Link>
-            <div>
-                <ChatList setActiveChat={setActiveChat}/>
-            </div>
+            <ChatList setActiveChat={setActiveChat}/>
+            <ActiveChat chatId={activeChat} />
         </>
     );
 }
