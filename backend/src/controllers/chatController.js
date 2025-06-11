@@ -29,6 +29,7 @@ async function getChat(req, res) {
             include: {
                 messages: {
                     select: {
+                        id: true,
                         text: true,
                         timestamp: true,
                         sender: {
