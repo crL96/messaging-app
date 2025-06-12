@@ -1,0 +1,14 @@
+/* .container {
+    border: 2px solid white;
+} */
+
+.container > form {
+    display: flex;
+    align-items: center;
+}
+
+.container > form > textarea {
+    flex-grow: 1;
+
+    font-size: 1rem;
+}

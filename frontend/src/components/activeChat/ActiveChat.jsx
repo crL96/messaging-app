@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 import { useNavigate } from "react-router-dom";
 import ChatMessage from "./chatMessage";
+import MessageBox from "../messageBox/MessageBox";
 
 function ActiveChat({ chatId }) {
     const [messages, setMessages] = useState([]);
@@ -32,11 +33,14 @@ function ActiveChat({ chatId }) {
 
     return (
         <div>
-            {messages.map((message) => {
-                return (
-                    <ChatMessage key={message.id} message={message} />
-                );
-            })}
+            <div>
+                {messages.map((message) => {
+                    return (
+                        <ChatMessage key={message.id} message={message} />
+                    );
+                })}
+            </div>
+            <MessageBox chatId={chatId} updateMessageList={setMessages}/>
         </div>
     );
 }
