@@ -31,9 +31,17 @@ function ActiveChat({ chatId }) {
         getMessages();
     }, [chatId, navigate]);
 
+    useEffect(() => {
+        // Scroll to bottom by default and on new message
+        const messageContainer = document.querySelector("#messagesContainer");
+        if (messageContainer) {
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+    })
+
     return (
-        <div>
-            <div>
+        <div className="activeChat">
+            <div id="messagesContainer">
                 {messages.map((message) => {
                     return (
                         <ChatMessage key={message.id} message={message} />

@@ -71,7 +71,7 @@ function NewChat({ setActiveChat, setChatList }) {
         <div>
             {showMsg ? <p>Couldn't find user with that username</p> : null}
             <form onSubmit={handleSubmit}>
-                <legend>Open new chat</legend>
+                <legend>Start new chat</legend>
                 <input
                     type="text"
                     name="username"
@@ -81,8 +81,8 @@ function NewChat({ setActiveChat, setChatList }) {
                     onChange={(e) => setValue(e.target.value)}
                 />
                 <button type="submit">Create chat</button>
+                <button type="button" onClick={() => setOpen(false)}>Cancel</button>
             </form>
-            <button onClick={() => setOpen(false)}>Cancel</button>
         </div>
     );
 }

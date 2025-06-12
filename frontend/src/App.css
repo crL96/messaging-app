@@ -1,6 +1,48 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   text-align: center;
+
+  height: 97vh;
+}
+
+main {
+  display: flex;
+
+  height: calc(97vh - 8rem);
+
+  border: 2px solid white;
+  border-radius: 0.5rem;
+}
+
+header {
+  height: 7rem;
+}
+
+.chatList {
+  border: 2px solid white;
+  background-color: #1d1d1d;
+
+  padding: 1rem;
+  
+  overflow-y: scroll;
+}
+
+.activeChat {
+  flex-grow: 1;
+
+  background-color: #1d1d1d;
+  border: 2px solid white;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.activeChat > #messagesContainer {
+  flex-grow: 1;
+
+  overflow-y: scroll;
+
+  padding: 1rem;
 }

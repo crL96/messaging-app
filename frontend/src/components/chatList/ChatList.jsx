@@ -31,7 +31,8 @@ function ChatList({ setActiveChat }) {
     }, [navigate]);
 
     return (
-        <div>
+        <div className="chatList">
+            <NewChat setActiveChat={setActiveChat} setChatList={setChats} />
             <div>
                 {chats.map((chat) => {
                     return (
@@ -43,7 +44,6 @@ function ChatList({ setActiveChat }) {
                     );
                 })}
             </div>
-            <NewChat setActiveChat={setActiveChat} setChatList={setChats} />
         </div>
     );
 }

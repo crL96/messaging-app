@@ -8,11 +8,13 @@ function App() {
     const [activeChat, setActiveChat] = useState(null);
 
     return (
-        <>
+        <div className="app">
             <Header />
-            <ChatList setActiveChat={setActiveChat}/>
-            <ActiveChat chatId={activeChat} />
-        </>
+            <main>
+                <ChatList setActiveChat={setActiveChat}/>
+                <ActiveChat chatId={activeChat} />
+            </main>
+        </div>
     );
 }
 
