@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 import ChatPreview from "./ChatPreview";
+import NewChat from "../newChat/NewChat";
 import { useNavigate } from "react-router-dom";
 
 function ChatList({ setActiveChat }) {
@@ -31,15 +32,18 @@ function ChatList({ setActiveChat }) {
 
     return (
         <div>
-            {chats.map((chat) => {
-                return (
-                    <ChatPreview
-                        key={chat.id}
-                        chat={chat}
-                        setActiveChat={setActiveChat}
-                    />
-                );
-            })}
+            <div>
+                {chats.map((chat) => {
+                    return (
+                        <ChatPreview
+                            key={chat.id}
+                            chat={chat}
+                            setActiveChat={setActiveChat}
+                        />
+                    );
+                })}
+            </div>
+            <NewChat setActiveChat={setActiveChat} setChatList={setChats} />
         </div>
     );
 }
