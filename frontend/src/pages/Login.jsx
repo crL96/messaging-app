@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Header from "../components/header/Header";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -36,6 +37,7 @@ function Login() {
 
     return (
         <>
+            <Header />
             {displayMsg ? <p>Incorrect email and or password</p> : null}
             <form onSubmit={handleLogin}>
                 <legend>Log In</legend>

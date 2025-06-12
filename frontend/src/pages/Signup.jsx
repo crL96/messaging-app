@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import Header from "../components/header/Header";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function Signup() {
@@ -52,6 +52,7 @@ function Signup() {
 
     return (
         <>
+            <Header />
             <ul>
                 {errorMessages.map((error, index) => {
                     return <li key={index}>{error.msg}</li>;
