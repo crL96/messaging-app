@@ -2,9 +2,12 @@ const prisma = require("../config/prisma");
 
 async function findUser(req, res) {
     try {
-        const user = await prisma.user.findUnique({
+        const user = await prisma.user.findFirst({
             where: {
-                username: req.params.username,
+                username: {
+                    equals: req.params.username,
+                    mode: "insensitive",
+                }
             },
         });
         if (user === null) {

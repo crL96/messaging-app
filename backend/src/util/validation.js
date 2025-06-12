@@ -12,8 +12,13 @@ const validateUser = [
         .withMessage("Username must be between 1 and 25 characters")
         //Check if username is already in use
         .custom(async (value) => {
-            const user = await prisma.user.findUnique({
-                where: { username: value },
+            const user = await prisma.user.findFirst({
+                where: {
+                    username: {
+                        equals: value,
+                        mode: "insensitive",
+                    }
+                },
             });
             if (user) throw new Error("Username is already in use");
         })
