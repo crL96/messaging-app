@@ -18,3 +18,12 @@
 .active {
     background-color: rgba(36, 101, 187, 0.342);
 }
+
+.container > img {
+    max-width: 55px;
+    max-height: 55px;
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
