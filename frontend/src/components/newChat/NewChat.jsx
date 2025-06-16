@@ -17,7 +17,7 @@ function NewChat({ setActiveChat, setChatList }) {
         e.preventDefault();
         try {
             // Check if valid username
-            const user = await fetch(`${API_URL}/user/${value}`, {
+            const user = await fetch(`${API_URL}/user/username/${value}`, {
                 headers: {
                     Authorization: localStorage.getItem("jwt-token"),
                 },

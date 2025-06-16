@@ -3,7 +3,7 @@ const controller = require("../controllers/userController");
 const passport = require("../config/passport");
 
 router.get(
-    "/:username",
+    "/username/:username",
     passport.authenticate("jwt", { session: false }),
     controller.findUser
 );
