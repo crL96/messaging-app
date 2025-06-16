@@ -1,6 +1,8 @@
-/* .container {
-    border: 2px solid white;
-} */
+.container {
+    border-top: 2px solid white;
+
+    padding: 1rem;
+}
 
 .container > form {
     display: flex;
@@ -11,4 +13,6 @@
     flex-grow: 1;
 
     font-size: 1rem;
+
+    margin-right: 1rem;
 }

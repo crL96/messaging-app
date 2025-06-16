@@ -55,7 +55,7 @@ function MessageBox({ chatId, updateMessageList }) {
                 <textarea
                     name="text"
                     id="text"
-                    rows={2}
+                    rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                 ></textarea>
