@@ -3,6 +3,12 @@ const controller = require("../controllers/userController");
 const passport = require("../config/passport");
 
 router.get(
+    "/",
+    passport.authenticate("jwt", { session: false }),
+    controller.getCurrentUser
+);
+
+router.get(
     "/username/:username",
     passport.authenticate("jwt", { session: false }),
     controller.findUser

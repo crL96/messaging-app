@@ -24,6 +24,15 @@ async function findUser(req, res) {
     }
 }
 
+async function getCurrentUser(req, res) {
+    res.json({
+        username: req.user.username,
+        imgUrl: req.user.imgUrl,
+        email: req.user.email,
+        id: req.user.id,
+    })
+}
+
 const setProfileImg = [
     validateImgUrl,
 
@@ -60,4 +69,5 @@ const setProfileImg = [
 module.exports = {
     findUser,
     setProfileImg,
+    getCurrentUser,
 };
