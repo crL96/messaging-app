@@ -23,7 +23,11 @@ function Header() {
             <h1>SendIT</h1>
             <nav>
                 {signedIn ? (
-                    <Link to="/login" onClick={handleLogout}>Log Out</Link>
+                    <>
+                        <Link to="/">Chats</Link>
+                        <Link to="/profile">Profile</Link>
+                        <Link to="/login" onClick={handleLogout}>Log Out</Link>
+                    </>
                 ) : (
                     <>
                         <Link to="/login">Log In</Link>

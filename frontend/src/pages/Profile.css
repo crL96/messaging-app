@@ -1,0 +1,33 @@
+.profileContainer > img {
+    width: 300px;
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+dialog {
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    border: 2px solid white;
+}
+
+dialog > form {
+    padding: 0.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+dialog button {
+    border: 1px solid white;
+}
+
+dialog button:first-child {
+    margin-right: 0.5rem;
+}
+
+dialog input {
+    line-height: 1.5;
+}
