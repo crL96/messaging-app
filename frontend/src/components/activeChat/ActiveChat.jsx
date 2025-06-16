@@ -3,10 +3,12 @@ const API_URL = import.meta.env.VITE_API_URL;
 import { useNavigate } from "react-router-dom";
 import ChatMessage from "./chatMessage";
 import MessageBox from "../messageBox/MessageBox";
+import "./activeChat.css";
 
 function ActiveChat({ chatId }) {
     const [messages, setMessages] = useState([]);
     const navigate = useNavigate();
+    const [currentUser, setCurrentUser] = useState(null);
 
     useEffect(() => {
         async function getMessages() {
@@ -21,6 +23,7 @@ function ActiveChat({ chatId }) {
                 if (res.status === 200) {
                     const data = await res.json();
                     setMessages(data.messages);
+                    setCurrentUser(data.currentUser);
                 } else if (res.status === 401) {
                     navigate("/login");
                 }
@@ -44,7 +47,7 @@ function ActiveChat({ chatId }) {
             <div id="messagesContainer">
                 {messages.map((message) => {
                     return (
-                        <ChatMessage key={message.id} message={message} />
+                        <ChatMessage key={message.id} message={message} currentUser={currentUser}/>
                     );
                 })}
             </div>

@@ -1,0 +1,30 @@
+.sentMessage,
+.recievedMessage {
+  width: fit-content;
+
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid white;
+  border-radius: 0.5rem;
+
+  text-align: start;
+}
+
+.sentMessage {
+  margin-left: auto;
+}
+
+.sentMessage > h4,
+.recievedMessage > h4 {
+    margin: 0;
+}
+
+.sentMessage > *:last-child,
+.recievedMessage > *:last-child {
+    margin: 0;
+}
+
+.sentMessage > p,
+.recievedMessage > p {
+    max-width: 60ch;
+}
