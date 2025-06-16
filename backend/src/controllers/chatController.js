@@ -43,6 +43,7 @@ async function getChat(req, res) {
         res.json({
             chatId: chat.id,
             messages: chat.messages,
+            currentUser: req.user.username
         });
     } catch (err) {
         console.log(err.message);
