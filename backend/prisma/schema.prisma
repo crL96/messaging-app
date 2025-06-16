@@ -21,6 +21,7 @@ model User {
   email        String    @unique
   chats        Chat[]    @relation(name: "usersInChat")
   sentMessages Message[]
+  imgUrl       String?
 }
 
 model Message {

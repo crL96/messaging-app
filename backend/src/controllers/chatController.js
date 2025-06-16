@@ -66,6 +66,7 @@ async function getAllChatsUser(req, res) {
                             },
                             select: {
                                 username: true,
+                                imgUrl: true,
                             },
                         },
                     },

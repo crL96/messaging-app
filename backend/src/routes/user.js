@@ -8,4 +8,10 @@ router.get(
     controller.findUser
 );
 
+router.post(
+    "/profile-img",
+    passport.authenticate("jwt", { session: false }),
+    controller.setProfileImg
+);
+
 module.exports = router;
