@@ -7,7 +7,7 @@
 
     border: 1px solid white;
 
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
 }
 
 .container:hover {
@@ -16,7 +16,9 @@
 }
 
 .active {
-    background-color: rgba(36, 101, 187, 0.342);
+    background-image: linear-gradient(30deg, #a53614, #f74e1a);
+    border-color: white;
+    color: white;
 }
 
 .container > img {

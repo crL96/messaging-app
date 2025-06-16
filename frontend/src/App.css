@@ -5,6 +5,9 @@
   text-align: center;
 
   height: 97vh;
+
+  --main-clr: #d34317;
+  --main-clr-shade: #f74e1a;
 }
 
 main {

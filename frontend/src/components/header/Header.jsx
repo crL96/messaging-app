@@ -20,7 +20,7 @@ function Header() {
 
     return (
         <header className={styles.header}>
-            <h1>SendIT</h1>
+            <h1>Send<span>IT</span></h1>
             <nav>
                 {signedIn ? (
                     <>

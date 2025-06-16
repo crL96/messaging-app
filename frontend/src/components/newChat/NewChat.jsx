@@ -10,7 +10,7 @@ function NewChat({ setActiveChat, setChatList }) {
     const navigate = useNavigate();
 
     if (!open) {
-        return <button onClick={() => setOpen(true)}>New Chat</button>;
+        return <button className={styles.openBtn} onClick={() => setOpen(true)}>New Chat</button>;
     }
 
     async function handleSubmit(e) {

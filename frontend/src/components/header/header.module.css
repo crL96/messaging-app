@@ -4,7 +4,16 @@
     align-items: center;
 }
 
+.header > h1 {
+    color: white;
+}
+
+.header > h1 > span {
+    color: #d34317;
+}
+
 .header > nav {
     display: flex;
     gap: 1rem;
+    font-size: 1.15rem;
 }

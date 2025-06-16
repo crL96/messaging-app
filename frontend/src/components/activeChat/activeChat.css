@@ -1,17 +1,21 @@
 .sentMessage,
 .recievedMessage {
-  width: fit-content;
+    width: fit-content;
 
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px solid white;
-  border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 1rem;
+    border: 2px solid #d34317;
+    border-radius: 0.5rem;
 
-  text-align: start;
+    text-align: start;
+
+    background-color: #27272749;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.329);
+    color: white;
 }
 
 .sentMessage {
-  margin-left: auto;
+    margin-left: auto;
 }
 
 .sentMessage > h4,
