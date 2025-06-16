@@ -5,7 +5,7 @@ import ChatPreview from "./ChatPreview";
 import NewChat from "../newChat/NewChat";
 import { useNavigate } from "react-router-dom";
 
-function ChatList({ setActiveChat }) {
+function ChatList({ setActiveChat, activeChat }) {
     const [chats, setChats] = useState([]);
     const navigate = useNavigate();
 
@@ -40,6 +40,7 @@ function ChatList({ setActiveChat }) {
                             key={chat.id}
                             chat={chat}
                             setActiveChat={setActiveChat}
+                            activeChat={activeChat}
                         />
                     );
                 })}

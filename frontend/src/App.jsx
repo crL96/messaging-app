@@ -11,7 +11,7 @@ function App() {
         <div className="app">
             <Header />
             <main>
-                <ChatList setActiveChat={setActiveChat}/>
+                <ChatList setActiveChat={setActiveChat} activeChat={activeChat}/>
                 <ActiveChat chatId={activeChat} />
             </main>
         </div>
