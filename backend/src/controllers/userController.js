@@ -1,4 +1,5 @@
 const prisma = require("../config/prisma");
+const { validateImgUrl, validationResult } = require("../util/validation");
 
 async function findUser(req, res) {
     try {
@@ -23,26 +24,38 @@ async function findUser(req, res) {
     }
 }
 
-async function setProfileImg(req, res) {
-    try {
-        const user = await prisma.user.update({
-            where: {
-                id: req.user.id,
-            },
-            data: {
-                imgUrl: req.body.imgUrl,
-            }
-        })
-        if (user) {
-            res.sendStatus(200);
-        } else {
-            res.status(400).send("Include URL to profile image in body as 'imgUrl'");
+const setProfileImg = [
+    validateImgUrl,
+
+    async (req, res) => {
+        //Check if validation passed
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({
+                errors: errors.array(),
+            });
         }
-    } catch (err) {
-        console.log(err.message);
-        res.status(500).send("Internal server error");
+
+        try {
+            const user = await prisma.user.update({
+                where: {
+                    id: req.user.id,
+                },
+                data: {
+                    imgUrl: req.body.imgUrl,
+                }
+            })
+            if (user) {
+                res.sendStatus(200);
+            } else {
+                res.status(400).send("Include URL to profile image in body as 'imgUrl'");
+            }
+        } catch (err) {
+            console.log(err.message);
+            res.status(500).send("Internal server error");
+        }
     }
-}
+];
 
 module.exports = {
     findUser,

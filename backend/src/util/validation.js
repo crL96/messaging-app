@@ -55,7 +55,31 @@ const validateUser = [
         .withMessage("Confirm password and password must match"),
 ];
 
+const validateImgUrl = [
+    body("imgUrl")
+        .notEmpty().withMessage("Url cannot be empty")
+        .isString().withMessage("Url has to be of type string")
+        .trim()
+        .custom((value) => {
+            const urlEnd = value.split(".").pop();
+            if (
+                urlEnd === "jpg" ||
+                urlEnd === "png" ||
+                urlEnd === "svg" ||
+                urlEnd === "jpeg" ||
+                urlEnd === "webp"
+            ) {
+                return true;
+            }
+            return false;
+        })
+        .withMessage(
+            "Url must reference an image with jpg, png, svg, jpeg or webp format"
+        ),
+];
+
 module.exports = {
     validationResult,
     validateUser,
+    validateImgUrl,
 }
