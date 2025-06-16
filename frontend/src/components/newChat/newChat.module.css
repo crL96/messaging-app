@@ -1,0 +1,30 @@
+.container {
+    border: 1px solid white;
+
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.container > form {
+    display: flex;
+    flex-direction: column;
+}
+
+.container > form > button {
+    border-color: white;
+}
+
+.container > form > input {
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.container > form > * {
+    margin-bottom: 0.5rem;
+}
+
+.container > p {
+    max-width: 20ch;
+    text-align: center;
+    margin: 1rem auto;
+}

@@ -1,6 +1,7 @@
 import { useState } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 import { useNavigate } from "react-router-dom";
+import styles from "./newChat.module.css";
 
 function NewChat({ setActiveChat, setChatList }) {
     const [open, setOpen] = useState(false);
@@ -68,7 +69,7 @@ function NewChat({ setActiveChat, setChatList }) {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             {showMsg ? <p>Couldn't find user with that username</p> : null}
             <form onSubmit={handleSubmit}>
                 <legend>Start new chat</legend>
