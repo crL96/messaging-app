@@ -64,7 +64,7 @@ function Profile() {
             <h2>Profile</h2>
             {user ? (
                 <>
-                    <ul>
+                    <ul className="errorMessages">
                         {errorMessages.map((error, index) => {
                             return <li key={index}>{error.msg}</li>;
                         })}

@@ -31,3 +31,10 @@ dialog button:first-child {
 dialog input {
     line-height: 1.5;
 }
+
+.errorMessages {
+    list-style-type: none;
+    padding-left: 0;
+
+    color: red;
+}
