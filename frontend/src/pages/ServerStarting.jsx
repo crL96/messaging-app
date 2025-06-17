@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 const API_URL = import.meta.env.VITE_API_URL;
 import { useNavigate } from "react-router-dom";
 import "../App.css";
@@ -8,7 +8,6 @@ import styles from "./serverStarting.module.css";
 // Due to the backend server shuting down with inactivity,
 // this page waits for server to boot and then redirects user
 function ServerStarting() {
-    const [serverRunning, setServerRunning] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,18 +15,15 @@ function ServerStarting() {
             fetch(`${API_URL}/`)
                 .then((res) => {
                     if (res.status === 200) {
-                        setServerRunning(true);
+                        // setServerRunning(true);
                         clearInterval(interval);
+                        navigate("/");
                     }
                 })
         }
         awaitStart();
         const interval = setInterval(awaitStart, 5000);
-    }, []);
-
-    if (serverRunning) {
-        navigate("/");
-    }
+    }, [navigate]);
 
     return (
         <div className="serverStarting">
