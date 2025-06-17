@@ -6,7 +6,7 @@ const validateUser = [
         .notEmpty().withMessage("Username cannot be empty")
         .trim()
         .isString().withMessage("Username has to be of type string")
-        .isAlphanumeric()
+        .isAlphanumeric("en-US", {ignore: " "})
         .withMessage("Username must be alpha-numeric (only numbers and letters")
         .isLength({ min: 1, max: 25 })
         .withMessage("Username must be between 1 and 25 characters")
