@@ -37,13 +37,20 @@ async function getChat(req, res) {
                         },
                     },
                 },
+                users: {
+                    select: {
+                        username: true,
+                        imgUrl: true,
+                    }
+                }
             },
         });
 
         res.json({
             chatId: chat.id,
             messages: chat.messages,
-            currentUser: req.user.username
+            currentUser: req.user.username,
+            users: chat.users,
         });
     } catch (err) {
         console.log(err.message);
