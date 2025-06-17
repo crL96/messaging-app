@@ -12,6 +12,8 @@
     background-color: #27272749;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.329);
     color: white;
+
+    white-space: pre-line;
 }
 
 .sentMessage {
