@@ -73,7 +73,7 @@ function Signup() {
                 <input type="password" name="password" id="password" required />
                 <label htmlFor="confPassword">Confirm Password: </label>
                 <input type="password" name="confPassword" id="confPassword" required />
-                <button type="submit">Log in</button>
+                <button type="submit">Sign Up</button>
             </form>
         </>
     );
