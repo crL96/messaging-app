@@ -11,9 +11,15 @@ function App() {
     const navigate = useNavigate();
 
     // Free tier publish for backend shuts down after inactivity,
-    // start waking process earlier by sending request at mount
+    // navigate user to dedicated loading page if server isnt running
     useEffect(() => {
         fetch(`${API_URL}/`)
+            .then(res => {
+                if (res.status !== 200) {
+                    console.log("Backend server not running yet, booting up")
+                    navigate("/server-starting")
+                }
+            })
             .catch(() => {
                 console.log("Backend server not running yet, booting up")
                 navigate("/server-starting")
