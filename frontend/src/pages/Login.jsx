@@ -7,6 +7,7 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function Login() {
     const [displayMsg, setDisplayMsg] = useState(false);
+    const [showGuest, setShowGuest] = useState(false);
     const navigate = useNavigate();
 
     async function handleLogin(e) {
@@ -48,6 +49,26 @@ function Login() {
                 <input type="password" name="password" id="password" required />
                 <button type="submit">Log in</button>
             </form>
+            {!showGuest ? (
+                <button
+                    type="button"
+                    className={styles.guestBtn}
+                    onClick={() => setShowGuest(true)}
+                >
+                    Log in as guest
+                </button>
+            ) : (
+                <div className={styles.guestContainer}>
+                    <p>Email: guest123@gmail.com</p>
+                    <p>Password: guest123</p>
+                    <button
+                        type="button"
+                        onClick={() => setShowGuest(false)}
+                    >
+                        Cancel
+                    </button>
+                </div>
+            )}
         </>
     );
 }
