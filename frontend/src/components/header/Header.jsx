@@ -24,7 +24,7 @@ function Header() {
             <nav>
                 {signedIn ? (
                     <>
-                        <Link to="/">Chats</Link>
+                        <Link to="/chat">Chats</Link>
                         <Link to="/profile">Profile</Link>
                         <Link to="/login" onClick={handleLogout}>Log Out</Link>
                     </>

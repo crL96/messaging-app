@@ -15,9 +15,8 @@ function ServerStarting() {
             fetch(`${API_URL}/`)
                 .then((res) => {
                     if (res.status === 200) {
-                        // setServerRunning(true);
                         clearInterval(interval);
-                        navigate("/");
+                        navigate("/chat");
                     }
                 })
         }
@@ -37,7 +36,7 @@ function ServerStarting() {
                     tier for publishing the backend that shuts down after inactivity, 
                     give it a little time to boot up. You will be redirected.
                 </p>
-                <span class={styles.loader}></span>
+                <span className={styles.loader}></span>
             </div>
         </div>
     );

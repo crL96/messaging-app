@@ -28,7 +28,7 @@ function Login() {
                 setDisplayMsg(false);
                 const resPayload = await res.json();
                 localStorage.setItem("jwt-token", resPayload.token);
-                navigate("/");
+                navigate("/chat");
             } else {
                 setDisplayMsg(true);
             }

@@ -7,7 +7,11 @@ import ServerStarting from "./pages/ServerStarting";
 const routes = [
     {
         path: "/",
-        element: <App />,
+        element: <ServerStarting />,
+    },
+    {
+        path: "chat",
+        element: <App />
     },
     {
         path: "login",
@@ -20,10 +24,6 @@ const routes = [
     {
         path: "profile",
         element: <Profile />,
-    },
-    {
-        path: "server-starting",
-        element: <ServerStarting />
     },
 ];
 

@@ -37,7 +37,7 @@ function Signup() {
                 if (loginRes.status === 200) {
                     const resPayload = await loginRes.json();
                     localStorage.setItem("jwt-token", resPayload.token);
-                    navigate("/");
+                    navigate("/chat");
                 } else {
                     navigate("/login");
                 }
