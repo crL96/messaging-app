@@ -53,3 +53,17 @@ header {
 .activeChat > .chatHeader {
   border-bottom: 2px solid white;
 }
+
+@media (max-width: 800px) {
+  main {
+    flex-direction: column-reverse;
+    height: 100%;
+
+    border: none;
+  }
+
+  .activeChat {
+    height: calc(97vh - 8rem);
+    margin-bottom: 3rem;
+  }
+}
