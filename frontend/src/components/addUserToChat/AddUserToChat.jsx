@@ -41,6 +41,7 @@ function AddUserToChat({ chatId, setUsers }) {
                 return;
             } else if (res.status === 401) {
                 navigate("/login");
+                localStorage.removeItem("jwt-token");
             }
         } catch (err) {
             console.log(err);
@@ -64,6 +65,7 @@ function AddUserToChat({ chatId, setUsers }) {
                 );
             } else if (res.status === 401) {
                 navigate("/login");
+                localStorage.removeItem("jwt-token");
             }
         } catch (err) {
             console.log(err);

@@ -25,6 +25,7 @@ function MessageBox({ chatId, updateMessageList }) {
                 refreshMessages();
             } else if (res.status === 401) {
                 navigate("/login");
+                localStorage.removeItem("jwt-token");
             }
         } catch (err) {
             console.log(err);
@@ -43,6 +44,7 @@ function MessageBox({ chatId, updateMessageList }) {
                 updateMessageList(data.messages);
             } else if (res.status === 401) {
                 navigate("/login");
+                localStorage.removeItem("jwt-token");
             }
         } catch (err) {
             console.log(err);

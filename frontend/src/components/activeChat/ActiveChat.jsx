@@ -29,6 +29,7 @@ function ActiveChat({ chatId }) {
                     setUsers(data.users.filter(user => user.username !== data.currentUser));
                 } else if (res.status === 401) {
                     navigate("/login");
+                    localStorage.removeItem("jwt-token");
                 }
             } catch (err) {
                 console.log(err);

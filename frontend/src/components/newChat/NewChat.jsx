@@ -29,6 +29,7 @@ function NewChat({ setActiveChat, setChatList }) {
                 console.log(user.status);
             } else if (user.status === 401) {
                 navigate("/login");
+                localStorage.removeItem("jwt-token");
             }
             // Username is valid, create chat
             const res = await fetch(`${API_URL}/chat/new`, {
