@@ -2,6 +2,7 @@ import App from "./App";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Profile from "./pages/Profile";
+import ServerStarting from "./pages/ServerStarting";
 
 const routes = [
     {
@@ -19,6 +20,10 @@ const routes = [
     {
         path: "profile",
         element: <Profile />,
+    },
+    {
+        path: "server-starting",
+        element: <ServerStarting />
     },
 ];
 
