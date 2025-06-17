@@ -28,4 +28,11 @@ router.post(
     controller.sendMessage
 );
 
+router.post(
+    "/users/:chatId",
+    passport.authenticate("jwt", { session: false }),
+    authMiddleware.verifyChatAuth,
+    controller.addUserToChat
+);
+
 module.exports = router;

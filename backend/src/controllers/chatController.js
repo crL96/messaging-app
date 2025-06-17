@@ -103,9 +103,50 @@ async function sendMessage(req, res) {
     }
 }
 
+async function addUserToChat(req, res) {
+    try {
+        if (!req.body || !req.body.username) {
+            res.status(400).send("Bad request: Include username in body");
+            return;
+        }
+
+        //Check if user exists
+        const user = await prisma.user.findFirst({
+            where: {
+                username: {
+                    equals: req.body.username,
+                    mode: "insensitive",
+                }
+            },
+        });
+        if (user === null) {
+            res.status(404).send("No user found");
+            return;
+        }
+        // if user exists, add to chat (users already in chat will have no effect)
+        const chat = await prisma.chat.update({
+            where: {
+                id: req.params.chatId,
+            },
+            data: {
+                users: {
+                    connect: [
+                        { username: user.username },
+                    ],
+                },
+            },
+        });
+        res.sendStatus(200);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send("Internal server error");
+    }
+}
+
 module.exports = {
     createChat,
     getChat,
     sendMessage,
     getAllChatsUser,
+    addUserToChat,
 };
