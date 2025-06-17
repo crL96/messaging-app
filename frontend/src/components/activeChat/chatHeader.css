@@ -1,0 +1,28 @@
+.activeChat > .chatHeader {
+  text-align: start;
+  padding: 1.5rem;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}
+
+.activeChat > .chatHeader h3 {
+  margin: 0;
+}
+
+.activeChat > .chatHeader img {
+    max-width: 55px;
+    max-height: 55px;
+    aspect-ratio: 1/1;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.activeChat > .chatHeader > div {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}

@@ -49,3 +49,7 @@ header {
 
   padding: 1rem;
 }
+
+.activeChat > .chatHeader {
+  border-bottom: 2px solid white;
+}

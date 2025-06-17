@@ -14,7 +14,10 @@ function ChatPreview({ chat, setActiveChat, activeChat }) {
     return (
         <div className={`${styles.container} ${selectStatus}`} onClick={handleChatSelect}>
             <img src={chat.users[0].imgUrl ? chat.users[0].imgUrl : userIcon} alt="User icon" />
-            <h3>{chat.users[0].username}</h3>
+            <h3>
+                {chat.users[0].username}{" "}
+                {chat.users.length > 1 ? ("& others") : null}
+            </h3>
         </div>
     );
 }
