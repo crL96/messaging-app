@@ -62,6 +62,11 @@ header {
     border: none;
   }
 
+  #root {
+    height: 100%;
+    padding: 0 0.8rem;
+  }
+
   .activeChat {
     height: calc(97vh - 8rem);
     margin-bottom: 3rem;
