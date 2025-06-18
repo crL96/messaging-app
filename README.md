@@ -5,7 +5,7 @@ This project is part of the TOP curriculum, a project made to test knowledge of 
 
 Link to project instructions: https://www.theodinproject.com/lessons/nodejs-messaging-app
 
-The main focus of this project is on tie together a REST API backend with a frontend application (in this case a React app). The task is to build a messaging app similar to Discord, Telegram, WhatsApp, Facebook Messenger etc (although with slightly fewer features). Users can send creat new chats with other users and send messages to each other. Group chats are possible.
+The main focus of this project is on tie together a REST API backend with a frontend application (in this case a React app). The task is to build a messaging app similar to Discord, Telegram, WhatsApp, Facebook Messenger etc (although with slightly fewer features). Users can create new chats with other users and send messages to each other. Group chats are possible.
 
 Passwords are hashed using Bcrypt, authentication is handeled with PassportJS and JWTs. All data is stored in a PostgreSQL server, handled with Prisma ORM.
 
