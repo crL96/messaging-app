@@ -4,10 +4,11 @@ import Header from "../components/header/Header";
 import styles from "./forms.module.css";
 
 const API_URL = import.meta.env.VITE_API_URL;
+const GUEST_EMAIL = import.meta.env.VITE_GUEST_EMAIL;
+const GUEST_PW = import.meta.env.VITE_GUEST_PW;
 
 function Login() {
     const [displayMsg, setDisplayMsg] = useState(false);
-    const [showGuest, setShowGuest] = useState(false);
     const navigate = useNavigate();
 
     async function handleLogin(e) {
@@ -37,6 +38,29 @@ function Login() {
         }
     }
 
+    async function handleGuestLogin() {
+        try {
+            const res = await fetch(`${API_URL}/auth/log-in`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "Application/json",
+                },
+                body: JSON.stringify({
+                    email: GUEST_EMAIL,
+                    password: GUEST_PW,
+                }),
+            });
+            if (res.status === 200) {
+                setDisplayMsg(false);
+                const resPayload = await res.json();
+                localStorage.setItem("jwt-token", resPayload.token);
+                navigate("/chat");
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <>
             <Header />
@@ -49,26 +73,13 @@ function Login() {
                 <input type="password" name="password" id="password" required />
                 <button type="submit">Log in</button>
             </form>
-            {!showGuest ? (
-                <button
-                    type="button"
-                    className={styles.guestBtn}
-                    onClick={() => setShowGuest(true)}
-                >
-                    Log in as guest
-                </button>
-            ) : (
-                <div className={styles.guestContainer}>
-                    <p>Email: guest123@gmail.com</p>
-                    <p>Password: guest123</p>
-                    <button
-                        type="button"
-                        onClick={() => setShowGuest(false)}
-                    >
-                        Cancel
-                    </button>
-                </div>
-            )}
+            <button
+                type="button"
+                className={styles.guestBtn}
+                onClick={handleGuestLogin}
+            >
+                Log in as guest
+            </button>
         </>
     );
 }
